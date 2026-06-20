@@ -28,7 +28,7 @@ Medium
 High
 Critical
 
-Return ONLY JSON.
+Return in the format given below.
 
 {{
     "severity": "...",
