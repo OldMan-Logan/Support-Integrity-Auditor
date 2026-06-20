@@ -9,7 +9,7 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
-    device_map="gpu"
+    device_map="auto"
 )
 
 def build_prompt(subject, description):
