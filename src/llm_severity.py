@@ -28,7 +28,7 @@ Medium
 High
 Critical
 
-Return in the format given below.
+Return ONLY JSON.
 
 {{
     "severity": "...",
@@ -79,14 +79,18 @@ def get_llm_severity(subject, description):
         skip_special_tokens=True
     )
 
-    # try:
-    #     result = json.loads(response)
-    # except:
-    #     result = {
-    #         "severity": "Medium",
-    #         "confidence": 0.5,
-    #         "reason": response
-    #     }
+    try:
+        parts = response.splitlines()
+        del parts[0]
+        del parts[-1]
+        new_text = "\n".join(parts)
+        result = json.loads(response)
+    except:
+        result = {
+            "severity": "Medium",
+            "confidence": 0.5,
+            "reason": response
+        }
 
     return response
 
