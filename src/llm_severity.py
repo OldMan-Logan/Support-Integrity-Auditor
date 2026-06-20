@@ -79,16 +79,16 @@ def get_llm_severity(subject, description):
         skip_special_tokens=True
     )
 
-    try:
-        result = json.loads(response)
-    except:
-        result = {
-            "severity": "Medium",
-            "confidence": 0.5,
-            "reason": response
-        }
+    # try:
+    #     result = json.loads(response)
+    # except:
+    #     result = {
+    #         "severity": "Medium",
+    #         "confidence": 0.5,
+    #         "reason": response
+    #     }
 
-    return result
+    return response
 
 # result = get_llm_severity("Hours of operation - Individual", "Hi Support, Where is your headquarters located?")
 # print(result)
